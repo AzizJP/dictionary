@@ -2,6 +2,7 @@
   margin: 0.5rem auto 1rem;
   display: flex;
   align-items: center;
+  perspective: 30rem;
 }
 
 @media screen and (min-width: 600px) {

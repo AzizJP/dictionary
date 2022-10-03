@@ -5,6 +5,7 @@
   width: calc(100% - 2rem);
   align-items: center;
   justify-content: center;
+  perspective: 100rem;
 }
 
 @media screen and (min-width: 600px) {

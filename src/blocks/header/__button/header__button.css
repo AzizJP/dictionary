@@ -1,6 +1,6 @@
 .header__button {
   margin: 0;
-  background-color: rgb(60, 60, 90);
+  background-color: rgb(140, 130, 80);
   font-family: "Poppins", "Verdana", "Tahoma", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -8,10 +8,12 @@
   font-size: 1rem;
   line-height: 1.2rem;
   border-radius: 0.5rem;
-  border-width: 0;
+  border-width: 0.1rem;
+  border-color: rgb(180, 180, 120);
   min-height: 3rem;
   width: 3rem;
   cursor: pointer;
+  transition: transform linear 0.5s;
 }
 
 @media screen and (min-width: 600px) {
@@ -29,5 +31,11 @@
     line-height: 1.8rem;
     min-height: 3rem;
     width: 3rem;
+  }
+
+  .header__button:hover {
+    transform: translateX(1rem);
+    transform: translateZ(1rem);
+    transition: transform linear 0.2s;
   }
 }
