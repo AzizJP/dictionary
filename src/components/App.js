@@ -1,16 +1,18 @@
 import { useCallback, useState } from "react";
 import Api from "../utils/Api";
+import Header from "./Header";
 
 function App() {
   const [translatedWord, setTranslatedWord] = useState("");
   const [synonyms, setSynonyms] = useState("");
   const [examples, setExamples] = useState("");
   const [exampleTranslate, setExampleTranslate] = useState("");
-  const [language, setLanguage] = useState("en-ru");
+  const [isEnButtonActive, setIsEnButtonActive] = useState(true);
+  const [isRuButtonActive, setIsRuButtonActive] = useState(false);
   const [enteredText, setEnteredText] = useState("");
 
   const findWord = useCallback(() => {
-    Api(language, enteredText).then((result) => {
+    Api(isEnButtonActive, enteredText).then((result) => {
       if (!result.def[0]) {
         console.log("Нет такого слова");
         setTranslatedWord("");
@@ -50,7 +52,13 @@ function App() {
         );
       }
     });
-  }, [language, enteredText, setTranslatedWord, setSynonyms, setExamples]);
+  }, [
+    isEnButtonActive,
+    enteredText,
+    setTranslatedWord,
+    setSynonyms,
+    setExamples,
+  ]);
 
   function handleChange(event) {
     setEnteredText(event.target.value);
@@ -62,32 +70,33 @@ function App() {
     event.preventDefault();
   }
 
-  function languageChangeToRu() {
-    setLanguage("ru-en");
-  }
-
-  function languageChangeToEn() {
-    setLanguage("en-ru");
-  }
+  const changerInputLanguage = () => {
+    setIsEnButtonActive(!isEnButtonActive);
+    setIsRuButtonActive(!isRuButtonActive);
+  };
 
   return (
-    <div className="App">
-      <button onClick={languageChangeToEn}>en-ru</button>
-      <button onClick={languageChangeToRu}>ru-en</button>
-      <form className="form" onSubmit={handleSubmit}>
-        <p>Введи слово</p>
-        <input
-          className="input"
-          value={enteredText}
-          onChange={handleChange}
-        ></input>
-        <button type="submit">Найти</button>
-        <div className="response">
-          <p>{`Перевод: ${translatedWord}`}</p>
-          <p>{`Синонимы: ${synonyms}`}</p>
-          <p>{`Примеры: ${examples} / ${exampleTranslate}`}</p>
-        </div>
-      </form>
+    <div className="page">
+      <div className="container">
+        <Header
+          changerInputLanguage={changerInputLanguage}
+          isEnButtonActive={isEnButtonActive}
+        />
+        <form className="form" onSubmit={handleSubmit}>
+          <p>Введи слово</p>
+          <input
+            className="input"
+            value={enteredText}
+            onChange={handleChange}
+          ></input>
+          <button type="submit">Найти</button>
+          <div className="response">
+            <p>{`Перевод: ${translatedWord}`}</p>
+            <p>{`Синонимы: ${synonyms}`}</p>
+            <p>{`Примеры: ${examples} / ${exampleTranslate}`}</p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
