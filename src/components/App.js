@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import Api from "../utils/Api";
 import Header from "./Header";
+import Main from "./Main";
 
 function App() {
   const [translatedWord, setTranslatedWord] = useState("");
@@ -66,7 +67,6 @@ function App() {
 
   function handleSubmit(event) {
     findWord();
-    setEnteredText("");
     event.preventDefault();
   }
 
@@ -82,20 +82,15 @@ function App() {
           changerInputLanguage={changerInputLanguage}
           isEnButtonActive={isEnButtonActive}
         />
-        <form className="form" onSubmit={handleSubmit}>
-          <p>Введи слово</p>
-          <input
-            className="input"
-            value={enteredText}
-            onChange={handleChange}
-          ></input>
-          <button type="submit">Найти</button>
-          <div className="response">
-            <p>{`Перевод: ${translatedWord}`}</p>
-            <p>{`Синонимы: ${synonyms}`}</p>
-            <p>{`Примеры: ${examples} / ${exampleTranslate}`}</p>
-          </div>
-        </form>
+        <Main
+          handleSubmit={handleSubmit}
+          enteredText={enteredText}
+          handleChange={handleChange}
+          translatedWord={translatedWord}
+          synonyms={synonyms}
+          examples={examples}
+          exampleTranslate={exampleTranslate}
+        />
       </div>
     </div>
   );

@@ -1,19 +1,16 @@
-import React from "react";
+import { memo } from "react";
 
 function Header({ changerInputLanguage, isEnButtonActive }) {
   return (
     <header className="header">
-      <h1>Словарь</h1>
+      <h1 className="header__title">Словарь</h1>
       <div className="header__buttons">
-        <button
-          className="header__button header__batton_active"
-          onClick={changerInputLanguage}
-        >
-          {isEnButtonActive ? "EN" : "RU"}
+        <button className="header__button" onClick={changerInputLanguage}>
+          {`Язык ввода: ${isEnButtonActive ? "EN" : "RU"}`}
         </button>
       </div>
     </header>
   );
 }
 
-export default React.memo(Header);
+export default memo(Header);
