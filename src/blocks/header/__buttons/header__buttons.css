@@ -1,3 +1,11 @@
 .header__buttons {
-    
+  margin: 0.5rem auto 1rem;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .header__buttons {
+    margin: 1rem auto 3rem;
+  }
 }

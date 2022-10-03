@@ -76,7 +76,7 @@ function App() {
   };
 
   return (
-    <div className="page">
+    <body className="page">
       <div className="container">
         <Header
           changerInputLanguage={changerInputLanguage}
@@ -92,7 +92,7 @@ function App() {
           exampleTranslate={exampleTranslate}
         />
       </div>
-    </div>
+    </body>
   );
 }
 

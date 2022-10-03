@@ -1,3 +1,13 @@
 .page {
-    
+  margin: 0;
+  background-color: rgb(70, 70, 110);
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Poppins", "Verdana", "Tahoma", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
