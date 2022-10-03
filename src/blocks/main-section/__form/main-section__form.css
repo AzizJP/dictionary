@@ -1,3 +1,23 @@
 .main-section__form {
-    
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 2rem);
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .main-section__form {
+    flex-direction: row;
+    margin-top: 2rem;
+    width: calc(100% - 4rem);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main-section__form {
+    margin-top: 3rem;
+    width: calc(100% - 6rem);
+  }
 }

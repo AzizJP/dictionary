@@ -20,5 +20,6 @@
 @import url(./blocks/main-section/__form/main-section__form.css);
 @import url(./blocks/main-section/__input/main-section__input.css);
 @import url(./blocks/main-section/__button/main-section__button.css);
+@import url(./blocks/main-section/__subtitle/main-section__subtitle.css);
 @import url(./blocks/main-section/__response-container/main-section__response-container.css);
 @import url(./blocks/main-section/__response-text/main-section__response-text.css);

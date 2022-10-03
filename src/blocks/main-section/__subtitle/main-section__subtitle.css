@@ -1,23 +1,19 @@
-.main-section__response-container {
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
+.main-section__subtitle {
+  margin: 0.5rem 0;
+  font-weight: 700;
   font-size: 1rem;
   line-height: 1.2rem;
-  align-self: start;
 }
 
 @media screen and (min-width: 600px) {
-  .main-section__response-container {
-    padding: 2rem;
+  .main-section__subtitle {
     font-size: 1.2rem;
     line-height: 1.5rem;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .main-section__response-container {
-    padding: 3rem;
+  .main-section__subtitle {
     font-size: 1.5rem;
     line-height: 1.8rem;
   }

@@ -15,10 +15,9 @@ function App() {
   const findWord = useCallback(() => {
     Api(isEnButtonActive, enteredText).then((result) => {
       if (!result.def[0]) {
-        console.log("Нет такого слова");
-        setTranslatedWord("");
-        setSynonyms("");
-        setExamples("");
+        setTranslatedWord("Слово не найдено");
+        setSynonyms("Не найдены");
+        setExamples("Не найдены");
         setExampleTranslate("");
         return;
       } else {
@@ -26,8 +25,7 @@ function App() {
       }
       let synonymArr = result.def[0].tr[0].syn;
       if (!synonymArr) {
-        console.log("Нет синонимов");
-        setSynonyms("отсутствуют");
+        setSynonyms("Не найдены");
       } else {
         setSynonyms(
           synonymArr.map(function (item) {
@@ -37,8 +35,7 @@ function App() {
       }
       let exampleArr = result.def[0].tr[0].ex;
       if (!exampleArr) {
-        console.log("Нет примеров");
-        setExamples("отсутствуют");
+        setExamples("Не найдены");
         setExampleTranslate("");
       } else {
         setExamples(
@@ -76,7 +73,7 @@ function App() {
   };
 
   return (
-    <body className="page">
+    <div className="page">
       <div className="container">
         <Header
           changerInputLanguage={changerInputLanguage}
@@ -92,7 +89,7 @@ function App() {
           exampleTranslate={exampleTranslate}
         />
       </div>
-    </body>
+    </div>
   );
 }
 

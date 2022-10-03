@@ -1,3 +1,37 @@
 .main-section__input {
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-family: "Poppins", "Verdana", "Tahoma", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  min-height: 3rem;
+  background-color: rgb(140, 130, 80);
+  border: none;
+  border-bottom: 0.1rem solid rgb(180, 180, 120);
+  color: white;
+  outline-style: none;
+  width: 100%;
+}
 
+.main-section__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 600px) {
+  .main-section__input {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    min-height: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .main-section__input {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    min-height: 3rem;
+  }
 }
