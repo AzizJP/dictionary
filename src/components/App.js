@@ -13,43 +13,47 @@ function App() {
   const [enteredText, setEnteredText] = useState("");
 
   const findWord = useCallback(() => {
-    Api(isEnButtonActive, enteredText).then((result) => {
-      if (!result.def[0]) {
-        setTranslatedWord("Слово не найдено");
-        setSynonyms("Не найдены");
-        setExamples("Не найдены");
-        setExampleTranslate("");
-        return;
-      } else {
-        setTranslatedWord(result.def[0].tr[0].text);
-      }
-      let synonymArr = result.def[0].tr[0].syn;
-      if (!synonymArr) {
-        setSynonyms("Не найдены");
-      } else {
-        setSynonyms(
-          synonymArr.map(function (item) {
-            return item.text;
-          })
-        );
-      }
-      let exampleArr = result.def[0].tr[0].ex;
-      if (!exampleArr) {
-        setExamples("Не найдены");
-        setExampleTranslate("");
-      } else {
-        setExamples(
-          exampleArr.map(function (item) {
-            setExampleTranslate(
-              exampleArr.map(function (item2) {
-                return item2.tr[0].text;
-              })
-            );
-            return item.text;
-          })
-        );
-      }
-    });
+    Api(isEnButtonActive, enteredText)
+      .then((result) => {
+        if (!result.def[0]) {
+          setTranslatedWord("Слово не найдено");
+          setSynonyms("Не найдены");
+          setExamples("Не найдены");
+          setExampleTranslate("");
+          return;
+        } else {
+          setTranslatedWord(result.def[0].tr[0].text);
+        }
+        let synonymArr = result.def[0].tr[0].syn;
+        if (!synonymArr) {
+          setSynonyms("Не найдены");
+        } else {
+          setSynonyms(
+            synonymArr.map(function (item) {
+              return item.text;
+            })
+          );
+        }
+        let exampleArr = result.def[0].tr[0].ex;
+        if (!exampleArr) {
+          setExamples("Не найдены");
+          setExampleTranslate("");
+        } else {
+          setExamples(
+            exampleArr.map(function (item) {
+              setExampleTranslate(
+                exampleArr.map(function (item2) {
+                  return item2.tr[0].text;
+                })
+              );
+              return item.text;
+            })
+          );
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [
     isEnButtonActive,
     enteredText,
